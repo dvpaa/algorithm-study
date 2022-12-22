@@ -66,6 +66,7 @@ arr = list(arr)
 
 arr.sort()
 arr.sort(key=len)
+# arr.sort(key=lambda x:(len(x), x))
 
 for s in arr:
     print(s)
