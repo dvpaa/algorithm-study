@@ -70,6 +70,35 @@ for i in range(int(input())):
         s.clear()
 ```
 
+##### 세번째 풀이 - 코드 참고
+set이 iterable 객체인 것을 확인한 후 in 연산을 사용하여 풀이하였다.  
+약 300ms가 단축되었다.
+```python
+import sys
+
+s = set()
+s1 = set(range(1, 21))
+for i in range(int(input())):
+    command = sys.stdin.readline().split()
+    if command[0] == 'add':
+        s.add(int(command[1]))
+    elif command[0] == 'remove':
+        s.discard(int(command[1]))
+    elif command[0] == 'check':
+        print(1) if int(command[1]) in s else print(0)
+    elif command[0] == 'toggle':
+        if int(command[1]) in s:
+            s.remove(int(command[1]))
+        else:
+            s.add(int(command[1]))
+    elif command[0] == 'all':
+        del s
+        s = s1.copy()
+    else:
+        s.clear()
+```
+
+
 #### 개선할 점 & 얻은 점
 set 자료형의 메소드를 자주 애용하지는 않기에 vscode ui에 뜨는 메소드 설명을 읽어보았다.  
 차후 set 자료형 구현 시에 익숙해질 필요가 있다고 느꼈고, 아주 유용한 자료형이기에 set으로 다양한 접근을 해보면 좋을 것 같다.
