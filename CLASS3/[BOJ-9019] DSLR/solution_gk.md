@@ -139,4 +139,4 @@ def convert_string(operator: str, val: int) -> int:
         return (val // 10) + 1000 * (val % 10)
 ```
 
-6660ms로 조금 더 단축시킬 수 있었다
+6660ms로 조금 더 단축시킬 수 있었다.
