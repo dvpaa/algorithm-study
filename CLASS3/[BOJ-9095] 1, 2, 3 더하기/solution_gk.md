@@ -35,6 +35,26 @@ for _ in range(int(input())):
 
 문제를 다 풀고 다른 사람들의 풀이를 보니 dp풀었다. 점화식은 dp[i] = dp[i-1] + dp[i-2] + dp[i-3] 이다.
 
+
+### dp 코드
+```python
+import sys
+
+input = sys.stdin.readline
+
+
+for _ in range(int(input())):
+    n = int(input())
+    dp = [-1, 1, 2, 4]
+
+    for i in range(4, n+1):
+        dp.append(dp[i - 1] + dp[i - 2] + dp[i - 3])
+
+    print(dp[n])
+```
+
+실행 시간에 차이는 없었다.
+
 계산과정에서 실수를 하기도 했고, 5이상부터는 직관적으로 떠오르지도 않았다.
 
-또한 결정적으로 1112 와 1121을 어떻게 구분해야 할지 감이 잡히지 않아서  dp로의 접근을 포기했었는데, 좀 더 생각하는 힘을 길러야곘다.
+또한 결정적으로 1112 와 1121을 어떻게 구분해야 할지 감이 잡히지 않아서 dp로의 접근을 포기했었는데, 좀 더 생각하는 힘을 길러야곘다.
