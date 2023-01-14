@@ -21,11 +21,11 @@
 - `Pull Request`
   - [본인 이름] yy-mm-dd (ex. [김건우] 22-10-08)
 - `Commit Message`
-  - [문제 출처] 문제 이름 (ex. [BOJ-1920] 수 찾기)
+  - [문제 출처] 문제 이름 (ex. [BOJ-1920] 수 찾기, [Programmers] 폰켓몬)
 
 ### 파일 및 폴더 구조
 - class/[문제출처-문제번호] 문제이름/solution_이니셜.md
-- 
+- programmers/문제번호/solution_이니셜.md
 
 ## 🗓일정
 - 백준 그룹과 wiki 참고
