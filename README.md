@@ -1,4 +1,4 @@
-# Algorithm-Study
+# Algorithm Study
 
 ## 🤦‍♂️Member
 |이름|solved.ac|Language|
