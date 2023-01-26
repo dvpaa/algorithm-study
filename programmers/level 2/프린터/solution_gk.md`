@@ -1,0 +1,78 @@
+## 문제
+https://school.programmers.co.kr/learn/courses/30/lessons/42587
+
+## 풀이
+### 설명
+큐에 index와 priority를 같이 넣어놓고 하나씩 꺼내어 주어진 조건을 비교했다.
+
+꺼낸 priority보다 큰 것이 큐에 없으면 index와 location을 비교했다.
+
+### python3 코드
+```python3
+from collections import deque
+
+def solution(priorities, location):
+    q = deque([(idx, priority) for idx, priority in enumerate(priorities)])
+    cnt = 0
+    
+    while q:
+        idx, priority = q.popleft()
+        if is_vaild(q, priority):
+            cnt += 1
+            if idx == location:
+                break
+        else:
+            q.append((idx, priority))
+            
+    return cnt
+
+        
+def is_vaild(q, target):
+    for idx, val in q:
+        if val > target:
+            return False
+    return True
+```
+
+### Java 코드
+```java
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Solution {
+
+    public int solution(int[] priorities, int location) {
+        Queue<List<Integer>> queue = new LinkedList<>();
+        
+        for (int i=0; i<priorities.length; i++) {
+            queue.add(new ArrayList<Integer>(Arrays.asList(i, priorities[i])));
+        }
+        
+        int cnt = 0;
+        while (!queue.isEmpty()) {
+            List<Integer> list = queue.poll();
+            int idx = list.get(0);
+            int priority = list.get(1);
+            
+            if (isVaild(queue, priority)) {
+                cnt++;
+                if (idx == location) { break; }
+            }
+            else { queue.add(list); }
+        }
+        return cnt;
+    }
+    
+    private boolean isVaild(Queue<List<Integer>> q, int target) {
+        for (List<Integer> list: q) {
+            if (list.get(1) > target) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
